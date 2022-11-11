@@ -15,14 +15,14 @@ Worst month on month decrease value and month
 
 I have used this to help practice and it was a lot of fun
 
-Installation
+# Installation
 N/A
 
-Usage
+# Usage
+https://brianmillie.github.io/Console-Finances/
+
+# Credits
 N/A
 
-Credits
-N/A
-
-Licenses
+# Licenses
 Please refer to the LICENSE in the repo
