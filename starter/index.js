@@ -86,3 +86,54 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+//Collecting total value
+var subindexTotal = 0;
+//Collecting total difference to be divided by months
+var differenceTotal = 0;
+//Collecting new value for difference, storing and restoring best and worst month on month results
+var differenceChange = 0;
+var differneceChangeTop = 0
+var differneceChangeTopMonth = 'Feb-2017'
+var differenceChangeBottom = 0
+var differneceChangeBottomMonth = 'Feb-2017'
+
+for(var index = 0; index <finances.length; index++){
+
+subindexTotal = subindexTotal + (finances[index][1]);
+//skipping 1st comparision as nothing to compare
+for(var index = 1; index <finances.length; index++){
+    differenceChange = (finances[index][1])-(finances[index-1][1]);
+    differenceTotal = differenceTotal + differenceChange;
+//redeclaring variables until we have best and worst differences
+    if (differneceChangeTop < differenceChange){
+        differneceChangeTop = differenceChange
+        differneceChangeTopMonth = finances[index][0]
+    }
+    if (differenceChangeBottom > differenceChange){
+        differenceChangeBottom = differenceChange
+        differneceChangeBottomMonth = finances[index][0]
+    }
+}
+}
+console.log('Financial Analysis');
+
+console.log('----------------------------------')
+
+//total months
+console.log('Total Months: ' + finances.length);
+
+//total values
+console.log('Total: $' + subindexTotal);
+
+
+//average differences
+differenceTotal = differenceTotal/finances.length;
+
+//setting differences to 2 dp
+console.log('Average Change: $' + (differenceTotal.toFixed(2)));
+
+//adding a value and month to analysis
+console.log('Greatest Increase in Profits: ' + differneceChangeTopMonth + ' $' + differneceChangeTop )
+
+console.log('Greatest Decrease in Profits: ' + differneceChangeBottomMonth + ' $' + differenceChangeBottom)
